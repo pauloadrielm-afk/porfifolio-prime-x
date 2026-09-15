@@ -1,0 +1,1338 @@
+
+/* =========================
+   CONFIGURAÇÕES GERAIS
+========================= */
+
+:root {
+  --paper: #F0F8FF;
+  --paper-light: #F0FFFF;
+  --ink: #111111;
+  --ink-soft: #292929;
+  --gray: #77736d;
+  --red: #A9A9A9;
+  --cinza-escuro: #696969;
+  --white: #ffffff;
+
+  --font-body: "DM Sans", sans-serif;
+  --font-title: "Space Grotesk", sans-serif;
+  --font-display: "Playfair Display", serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+section {
+  position: relative;
+}
+
+.section-paper {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.section-dark {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.section-red {
+  background: var(--red);
+  color: var(--ink);
+}
+
+
+/* =========================
+   TEXTURA DE PAPEL
+========================= */
+
+.section-paper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.22;
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+
+.section-paper > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+.header {
+  width: 100%;
+  padding: 28px 6vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--paper);
+  border-bottom: 2px solid var(--ink);
+  position: relative;
+  z-index: 20;
+}
+
+.logo {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 0.85;
+  letter-spacing: -1px;
+}
+
+.logo span {
+  color: var(--red);
+}
+
+.nav {
+  display: flex;
+  gap: 32px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.nav a {
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 0;
+  height: 3px;
+  background: var(--red);
+  transition: width 0.25s ease;
+}
+
+.nav a:hover {
+  color: var(--red);
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+.menu-button {
+  display: none;
+  background: none;
+  border: none;
+  width: 35px;
+  height: 25px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu-button span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: var(--ink);
+}
+
+
+/* =========================
+   HOME
+========================= */
+
+.hero {
+  min-height: 720px;
+  padding: 110px 10vw 140px;
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  align-items: center;
+  gap: 80px;
+  overflow: hidden;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  font-family: var(--font-title);
+  font-size: clamp(3.8rem, 7vw, 7.5rem);
+  line-height: 0.9;
+  letter-spacing: -6px;
+  font-weight: 700;
+  margin-bottom: 35px;
+}
+
+.hero h1 span {
+  color: var(--red);
+}
+
+.hero-description {
+  max-width: 450px;
+  color: #4e4b46;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  padding: 16px 24px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 2px solid var(--ink);
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.button span {
+  font-size: 1.2rem;
+}
+
+.button:hover {
+  transform: translateY(-4px);
+}
+
+.button-dark {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.button-dark:hover {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--ink);
+}
+
+.button-light {
+  background: var(--paper);
+  color: var(--ink);
+  border-color: var(--paper);
+}
+
+.button-light:hover {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+
+/* DESENHO DO ROSTO SOBRE UMA FOLHA DE PAPEL */
+
+.hero-art {
+    position: relative;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.portrait-frame {
+    width: min(100%, 420px);
+    aspect-ratio: 4 / 5;
+    position: relative;
+    transform: rotate(3deg);
+}
+
+.paper-background {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-50%);
+    object-fit: fill;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.portrait-image {
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    width: 75%;
+    height: 65%;
+    transform: translateX(-50%);
+    object-fit: contain;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.paper-tape {
+    position: absolute;
+    width: 110px;
+    height: 28px;
+    background: rgba(210, 190, 150, 0.75);
+    z-index: 4;
+    pointer-events: none;
+}
+
+.tape-top {
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-4deg);
+}
+
+.paper-clip {
+    position: absolute;
+    top: -18px;
+    right: 28px;
+    width: 24px;
+    height: 70px;
+    border: 3px solid #777;
+    border-radius: 12px;
+    transform: rotate(12deg);
+    z-index: 5;
+    pointer-events: none;
+}
+
+.hero-sticker {
+  position: absolute;
+  background: var(--red);
+  border: 2px solid var(--ink);
+  font-family: var(--font-title);
+  font-weight: 700;
+  z-index: 3;
+}
+
+.sticker-one {
+  bottom: 40px;
+  left: 0;
+  padding: 16px 22px;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  transform: rotate(-6deg);
+}
+
+.sticker-two {
+  top: 30px;
+  right: 0;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  transform: rotate(12deg);
+}
+
+
+/* =========================
+   DESENHOS FLUTUANTES
+========================= */
+
+.floating-drawing {
+  position: absolute;
+  z-index: 10;
+  pointer-events: none;
+  user-select: none;
+  object-fit: contain;
+}
+
+.drawing-1 {
+  width: 110px;
+  top: 150px;
+  left: 2%;
+  transform: rotate(-15deg);
+}
+
+.drawing-2 {
+  width: 130px;
+  top: 780px;
+  right: 3%;
+  transform: rotate(12deg);
+}
+
+.drawing-3 {
+  width: 100px;
+  top: 1500px;
+  left: 3%;
+  transform: rotate(8deg);
+}
+
+
+/* =========================
+   FAIXA
+========================= */
+
+.ticker {
+  background: var(--ink);
+  color: var(--paper);
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  padding: 17px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.ticker-track {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  width: max-content;
+  animation: tickerMove 28s linear infinite;
+}
+
+.ticker span {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+}
+
+.ticker b {
+  color: var(--red);
+  font-size: 1.2rem;
+}
+
+@keyframes tickerMove {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* =========================
+   SEÇÕES
+========================= */
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 80px;
+}
+
+.section-label span:first-child {
+  color: var(--red);
+}
+
+.section-label span:last-child {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.section-label span:last-child::before {
+  content: "";
+  width: 45px;
+  height: 2px;
+  background: currentColor;
+}
+
+
+/* =========================
+   SOBRE
+========================= */
+
+.about {
+  padding: 120px 10vw 150px;
+  overflow: hidden;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: start;
+}
+
+.about-title h2 {
+  font-family: var(--font-title);
+  font-size: clamp(3rem, 6vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: -4px;
+}
+
+.about-title h2 em {
+  color: var(--red);
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.about-text {
+  max-width: 500px;
+  padding-top: 15px;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #bcb8b0;
+  margin-bottom: 30px;
+}
+
+.about-signature {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: var(--red);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-top: 45px;
+}
+
+
+/* =========================
+   HABILIDADES
+========================= */
+
+.skills {
+  padding: 120px 10vw 150px;
+}
+
+.skills-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 70px;
+}
+
+.skills-heading h2,
+.projects-heading h2,
+.sketchbook-heading h2 {
+  font-family: var(--font-title);
+  font-size: clamp(3.5rem, 7vw, 7rem);
+  line-height: 0.9;
+  letter-spacing: -5px;
+}
+
+.skills-heading h2 span,
+.sketchbook-heading h2 span {
+  color: var(--red);
+}
+
+.skills-heading p,
+.projects-heading p {
+  max-width: 300px;
+  line-height: 1.7;
+  color: var(--gray);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.skill-card {
+  min-height: 270px;
+  border: 2px solid var(--ink);
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.skill-card:hover {
+  background: var(--ink);
+  color: var(--paper);
+  transform: translateY(-8px);
+}
+
+.skill-number {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--red);
+}
+
+.skill-icon {
+  font-family: var(--font-title);
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.skill-card h3 {
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+}
+
+.skill-card p {
+  color: var(--gray);
+  font-size: 0.85rem;
+  margin-top: 8px;
+}
+
+.skill-card:hover p {
+  color: #aaa;
+}
+
+.tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 50px;
+}
+
+.tools span {
+  border: 1px solid var(--ink);
+  padding: 12px 18px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: background 0.25s ease;
+}
+
+.tools span:hover {
+  background: var(--red);
+}
+
+
+/* =========================
+   PROJETOS
+========================= */
+
+.projects {
+  padding: 120px 10vw 150px;
+}
+
+.projects-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.projects-heading h2 em {
+  font-family: var(--font-display);
+  color: var(--red);
+  font-weight: 700;
+}
+
+.projects-heading p {
+  color: #aaa;
+}
+
+.project-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 45px;
+}
+
+.filter-button {
+  background: transparent;
+  color: var(--paper);
+  border: 1px solid #555;
+  padding: 10px 20px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.filter-button:hover,
+.filter-button.active {
+  background: var(--red);
+  color: var(--ink);
+  border-color: var(--red);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 70px 35px;
+}
+
+.project-card {
+  min-width: 0;
+}
+
+.project-image {
+  aspect-ratio: 4 / 3;
+  background: #222;
+  border: 2px solid #444;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.04);
+}
+
+.zoom-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 45px;
+  height: 45px;
+  border: 2px solid var(--ink);
+  background: var(--red);
+  color: var(--ink);
+  font-size: 1.4rem;
+  z-index: 2;
+  transition: transform 0.25s ease;
+}
+
+.zoom-button:hover {
+  transform: rotate(10deg) scale(1.1);
+}
+
+.project-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 20px;
+}
+
+.project-type {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  color: var(--red);
+  font-weight: 700;
+}
+
+.project-info h3 {
+  font-family: var(--font-title);
+  font-size: 1.6rem;
+  margin-top: 8px;
+  line-height: 1.1;
+}
+
+.project-arrow {
+  font-size: 1.8rem;
+  color: var(--red);
+}
+
+.project-card > p {
+  color: #999;
+  line-height: 1.7;
+  font-size: 0.9rem;
+  max-width: 450px;
+  margin-top: 15px;
+}
+
+.project-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.project-tags span {
+  border: 1px solid #555;
+  padding: 7px 12px;
+  font-size: 0.7rem;
+  color: #bbb;
+  text-transform: uppercase;
+}
+
+
+/* PROJETO DE PAPEL */
+
+.paper-project {
+  background: var(--paper-light);
+  border-color: var(--paper-light);
+}
+
+.paper-project img {
+  object-fit: contain;
+  padding: 40px;
+}
+
+.paper-label {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: var(--ink);
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+
+/* =========================
+   SKETCHBOOK
+========================= */
+
+.sketchbook {
+  padding: 120px 10vw 160px;
+  overflow: hidden;
+}
+
+.sketchbook-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 40px;
+  margin-bottom: 80px;
+}
+
+.sketchbook-heading p {
+  max-width: 300px;
+  color: var(--gray);
+  line-height: 1.7;
+}
+
+.sketchbook-grid {
+  min-height: 600px;
+  position: relative;
+}
+
+.sketch {
+  position: absolute;
+  background: var(--paper-light);
+  border: 2px solid var(--ink);
+  padding: 25px;
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+.sketch img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.sketch-caption {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.sketch-a {
+  width: 35%;
+  height: 400px;
+  left: 2%;
+  top: 30px;
+  transform: rotate(-5deg);
+}
+
+.sketch-b {
+  width: 30%;
+  height: 330px;
+  left: 38%;
+  top: 130px;
+  transform: rotate(4deg);
+}
+
+.sketch-c {
+  width: 30%;
+  height: 380px;
+  right: 2%;
+  top: 0;
+  transform: rotate(-3deg);
+}
+
+
+/* =========================
+   CONTATO
+========================= */
+
+.contact {
+  padding: 130px 10vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  overflow: hidden;
+}
+
+.contact h2 {
+  font-family: var(--font-title);
+  font-size: clamp(3.5rem, 7vw, 7rem);
+  line-height: 0.9;
+  letter-spacing: -5px;
+  margin-bottom: 35px;
+}
+
+.contact h2 span {
+  font-family: var(--font-display);
+}
+
+.contact-content > p:not(.eyebrow) {
+  max-width: 430px;
+  line-height: 1.7;
+  margin-bottom: 35px;
+}
+
+.contact-symbol {
+  font-size: 20rem;
+  line-height: 0.7;
+  font-family: var(--font-display);
+  opacity: 0.15;
+  transform: rotate(15deg);
+}
+
+
+/* =========================
+   RODAPÉ
+========================= */
+
+.footer {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 60px 10vw 30px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 30px;
+  padding-bottom: 60px;
+}
+
+.footer-logo {
+  color: var(--paper);
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.footer-links a:hover {
+  color: var(--red);
+}
+
+.footer-bottom {
+  border-top: 1px solid #444;
+  padding-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  color: #777;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.image-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 40px;
+}
+
+.image-modal.active {
+  display: flex;
+}
+
+.image-modal img {
+  max-width: 90vw;
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+.image-modal p {
+  color: var(--paper);
+  margin-top: 20px;
+  font-size: 0.9rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 25px;
+  right: 35px;
+  border: none;
+  background: none;
+  color: white;
+  font-size: 3rem;
+  font-weight: 300;
+}
+
+
+/* =========================
+   ANIMAÇÕES DE ROLAGEM
+========================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 900px) {
+
+  .header {
+    padding: 22px 6vw;
+  }
+
+  .nav {
+    gap: 18px;
+    font-size: 0.7rem;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 80px;
+    gap: 60px;
+  }
+
+  .hero-art {
+    min-height: 450px;
+  }
+
+  .hero h1 {
+    font-size: clamp(3.5rem, 12vw, 6rem);
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sketchbook-grid {
+    min-height: 1000px;
+  }
+
+  .sketch-a {
+    width: 60%;
+    left: 0;
+  }
+
+  .sketch-b {
+    width: 55%;
+    left: 35%;
+    top: 350px;
+  }
+
+  .sketch-c {
+    width: 55%;
+    right: 0;
+    top: 650px;
+  }
+
+  .contact-symbol {
+    font-size: 12rem;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .header {
+    padding: 20px 6vw;
+  }
+
+  .menu-button {
+    display: flex;
+  }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--paper);
+    border-bottom: 2px solid var(--ink);
+    display: none;
+    flex-direction: column;
+    padding: 25px 6vw;
+    gap: 25px;
+  }
+
+  .nav.open {
+    display: flex;
+  }
+
+  .nav a::after {
+    display: none;
+  }
+
+  .hero {
+    padding: 70px 6vw 100px;
+    min-height: auto;
+  }
+
+  .hero h1 {
+    font-size: clamp(3.2rem, 16vw, 5rem);
+    letter-spacing: -3px;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+  }
+
+  .hero-art {
+    min-height: 380px;
+  }
+
+  .portrait-frame {
+    width: 80%;
+  }
+
+  .sticker-one {
+    left: 0;
+    bottom: 15px;
+  }
+
+  .sticker-two {
+    right: 0;
+    top: 10px;
+  }
+
+  .floating-drawing {
+    opacity: 0.7;
+  }
+
+  .drawing-1 {
+    width: 65px;
+    top: 250px;
+  }
+
+  .drawing-2 {
+    width: 70px;
+    top: 850px;
+  }
+
+  .drawing-3 {
+    width: 60px;
+    top: 1650px;
+  }
+
+  .section-label {
+    margin-bottom: 50px;
+  }
+
+  .about,
+  .skills,
+  .projects,
+  .sketchbook {
+    padding: 80px 6vw 100px;
+  }
+
+  .about-title h2,
+  .skills-heading h2,
+  .projects-heading h2,
+  .sketchbook-heading h2,
+  .contact h2 {
+    font-size: clamp(3rem, 15vw, 5rem);
+    letter-spacing: -3px;
+  }
+
+  .skills-heading,
+  .projects-heading,
+  .sketchbook-heading {
+    flex-direction: column;
+    align-items: start;
+    gap: 25px;
+    margin-bottom: 45px;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .skill-card {
+    min-height: 220px;
+    padding: 18px;
+  }
+
+  .skill-icon {
+    font-size: 2.2rem;
+  }
+
+  .skill-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .skill-card p {
+    font-size: 0.75rem;
+  }
+
+  .projects-grid {
+    gap: 50px;
+  }
+
+  .project-info h3 {
+    font-size: 1.3rem;
+  }
+
+  .project-image {
+    margin-bottom: 20px;
+  }
+
+  .sketchbook-grid {
+    min-height: 800px;
+  }
+
+  .sketch {
+    padding: 15px;
+    box-shadow: 5px 5px 0 var(--ink);
+  }
+
+  .sketch-a {
+    width: 75%;
+    height: 300px;
+  }
+
+  .sketch-b {
+    width: 70%;
+    height: 270px;
+    left: 25%;
+    top: 280px;
+  }
+
+  .sketch-c {
+    width: 70%;
+    height: 290px;
+    right: 0;
+    top: 530px;
+  }
+
+  .contact {
+    padding: 90px 6vw;
+  }
+
+  .contact-symbol {
+    display: none;
+  }
+
+  .footer {
+    padding: 50px 6vw 25px;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .image-modal {
+    padding: 20px;
+  }
+
+  .image-modal img {
+    max-width: 100%;
+  }
+
+}
+
+
+/* REDUÇÃO DE MOVIMENTO */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+}
