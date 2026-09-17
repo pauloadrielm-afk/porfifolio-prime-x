@@ -21,10 +21,7 @@ navLinks.forEach(link => {
   });
 });
 
-
-// =========================
-// ANIMAÇÃO AO ROLAR
-// =========================
+// ANIMAÇÃO AO ROLAR //
 
 const revealElements = document.querySelectorAll(".reveal");
 
@@ -46,10 +43,7 @@ revealElements.forEach((element) => {
   revealObserver.observe(element);
 });
 
-
-// =========================
-// FILTRO DE PROJETOS
-// =========================
+// FILTRO DE PROJETOS //
 
 const filterButtons = document.querySelectorAll(".filter-button");
 const projectCards = document.querySelectorAll(".project-card");
@@ -83,10 +77,7 @@ filterButtons.forEach((button) => {
 
 });
 
-
-// =========================
-// MODAL DE IMAGENS
-// =========================
+// MODAL DE IMAGENS//
 
 const imageModal = document.querySelector("#imageModal");
 const modalImage = document.querySelector("#modalImage");

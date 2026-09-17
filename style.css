@@ -1,7 +1,4 @@
-
-/* =========================
-   CONFIGURAÇÕES GERAIS
-========================= */
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
 :root {
   --paper: #F0F8FF;
@@ -14,12 +11,17 @@
   --white: #ffffff;
 
   --font-body: "DM Sans", sans-serif;
-  --font-title: "Space Grotesk", sans-serif;
-  --font-display: "Playfair Display", serif;
+  --font-title: "permanent Marker", cursive;
+  --font-display: 'Caveat', cursive
 }
 
 * {
   margin: 0;
+  background-image: radial-gradient(
+    rgba(20, 20, 20, 0.16) 1px,
+    transparent 1px
+  );
+  background-size: 18px 18px;
   padding: 0;
   box-sizing: border-box;
 }
@@ -29,6 +31,13 @@ html {
 }
 
 body {
+
+  margin: 0;
+  background-image: radial-gradient(
+    rgba(20, 20, 20, 0.16) 1px,
+    transparent 1px
+  );
+  background-size: 18px 18px;
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-body);
@@ -70,9 +79,6 @@ section {
 }
 
 
-/* =========================
-   TEXTURA DE PAPEL
-========================= */
 
 .section-paper::before {
   content: "";
@@ -91,9 +97,7 @@ section {
 }
 
 
-/* =========================
-   CABEÇALHO
-========================= */
+/*CABECALHO*/
 
 .header {
   width: 100%;
@@ -170,9 +174,7 @@ section {
 }
 
 
-/* =========================
-   HOME
-========================= */
+/*HOME*/
 
 .hero {
   min-height: 720px;
@@ -194,11 +196,10 @@ section {
 
 .hero h1 {
   font-family: var(--font-title);
-  font-size: clamp(3.8rem, 7vw, 7.5rem);
-  line-height: 0.9;
-  letter-spacing: -6px;
-  font-weight: 700;
-  margin-bottom: 35px;
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: -2px;
+  font-weight: 400;
 }
 
 .hero h1 span {
@@ -272,14 +273,14 @@ section {
 
 .hero-art {
     position: relative;
-    min-height: 500px;
+    min-height: 650px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .portrait-frame {
-    width: min(100%, 420px);
+    width: min(100%, 760px);
     aspect-ratio: 4 / 5;
     position: relative;
     transform: rotate(3deg);
@@ -287,22 +288,22 @@ section {
 
 .paper-background {
     position: absolute;
-    top: 0;
+    top: 0%;
     left: 50%;
     width: 100%;
     height: 100%;
     transform: translateX(-50%);
     object-fit: fill;
-    z-index: 1;
+    z-index: 2;
     pointer-events: none;
 }
 
 .portrait-image {
     position: absolute;
-    top: 18%;
+    top: 8%;
     left: 50%;
-    width: 75%;
-    height: 65%;
+    width: 94%;
+    height: 84%;
     transform: translateX(-50%);
     object-fit: contain;
     z-index: 2;
@@ -383,21 +384,21 @@ section {
 }
 
 .drawing-1 {
-  width: 110px;
+  width: 250px;
   top: 150px;
   left: 2%;
   transform: rotate(-15deg);
 }
 
 .drawing-2 {
-  width: 130px;
+  width: 250px;
   top: 780px;
   right: 3%;
   transform: rotate(12deg);
 }
 
 .drawing-3 {
-  width: 100px;
+  width: 130px;
   top: 1500px;
   left: 3%;
   transform: rotate(8deg);
@@ -646,9 +647,7 @@ section {
 }
 
 
-/* =========================
-   PROJETOS
-========================= */
+/* PROJETOS */
 
 .projects {
   padding: 120px 10vw 150px;
@@ -709,7 +708,8 @@ section {
 }
 
 .project-image {
-  aspect-ratio: 4 / 3;
+  width: 100%;
+  height: 520px;
   background: #222;
   border: 2px solid #444;
   position: relative;
@@ -720,7 +720,7 @@ section {
 .project-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.5s ease;
 }
 
@@ -849,13 +849,10 @@ section {
 
 .sketch {
   position: absolute;
-  background: var(--paper-light);
-  border: 2px solid var(--ink);
-  padding: 25px;
-  box-shadow: 8px 8px 0 var(--ink);
 }
 
 .sketch img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
